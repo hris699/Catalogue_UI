@@ -3,9 +3,9 @@ import {
   Navbar,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from "reactstrap";
+import {NavLink} from "react-router-dom";
 
 function Header() {
   return (
@@ -14,7 +14,7 @@ function Header() {
         <NavbarBrand href="/">Catalogue App</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem >
-            <NavLink href="/login">Sign-up/Sign-in</NavLink>
+            <NavLink to="/login">Sign-up/Sign-in</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

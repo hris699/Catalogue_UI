@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/confirmSignup" element={<ConfirmUserForm />} />
           <Route path="/contentProvider" element={<ListContentProviders />}/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       <ToastContainer />
     </div>
 
