@@ -119,7 +119,7 @@ function SignUpForm() {
                     </div>
                 }
                 <div className="button-container">
-                    <Button type="submit" onClick={handleSubmit}>SignUp</Button>
+                    <Button type="submit" onClick={handleSubmit}>Sign Up</Button>
                 </div>
             </Form>
         </div>
