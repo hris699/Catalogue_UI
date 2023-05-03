@@ -20,7 +20,7 @@ function LoginForm() {
                 </div>
                 <div className="input-container">
                     <label>Password </label>
-                    <input type="password" name="pass" value={password} onChange={(event) => { setPassword(event.target.value) }} required />
+                    {/* <input type="password" name="pass" value={password} onChange={(event) => { setPassword(event.target.value) }} required /> */}
                     <div>
                         <Link className="sign-up" to="/signup">Sign Up</Link>
                         <Link className="forget-password" to="/forgotpassword">Forgot Password</Link>
