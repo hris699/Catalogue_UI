@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+   
+    commands:
+        # install npm
+        - npm install
+      
+       
+  build:
+    commands:
+        # run build script
+        - npm run build
+        
+        
+     
+artifacts:
+
+  files: 
+    - "**/*"
+  discard-paths: no
+  base-directory: build
+

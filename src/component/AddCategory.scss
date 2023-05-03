@@ -1,0 +1,18 @@
+@import "./style.scss";
+
+.AddForm{
+    border: 1px ridge;
+    border-color:$button-hover-background-color;
+    border-radius: 2%;
+    padding-left: 5%;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 0%;
+  }
+.ListCat{
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }  
+.Error{
+    color:$error-color;
+  }  

@@ -1,0 +1,6 @@
+{
+    "Parameters" : {
+      "S3BucketForCatalogueUI" : "cft-catalogoue-testing11"
+      
+    }
+}

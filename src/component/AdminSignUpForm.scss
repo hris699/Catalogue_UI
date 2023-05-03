@@ -1,0 +1,40 @@
+@import "./style.scss";
+
+input[type="text"],
+input[type="password"] {
+    height: 25%;
+}
+
+input[type="submit"] {
+    margin-top: 10%;
+    cursor: pointer;
+    font-size: 85%;
+    background: $button-background-color;
+    color: $button-text-color;
+    padding: 1% 2%;
+}
+
+input[type="submit"]:hover {
+    background: $button-hover-background-color;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-signup-form {
+    background-color: $background-color;
+    padding: 2%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    width: 50%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    margin: 3%;
+}
