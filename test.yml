@@ -24,6 +24,7 @@ Resources:
                 Statement:
                   Action:
                   - s3:GetObject
+                  - s3:PutBucketPolicy
                   Effect: Allow
                   Resource: !Sub
                     - arn:aws:s3:::${bucketname}/*
