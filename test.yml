@@ -24,7 +24,6 @@ Resources:
                 Statement:
                   Action:
                   - s3:GetObject
-                  - s3:PutBucketPolicy
                   Effect: Allow
                   Resource: !Sub
                     - arn:aws:s3:::${bucketname}/*
@@ -33,7 +32,7 @@ Resources:
     
 Outputs:
   WebsiteURL:
-    Value: !GetAtt 
+    Value: !GetAtt
       - S3Bucket
       - WebsiteURL
     Description: URL for website hosted on S3
