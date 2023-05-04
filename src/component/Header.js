@@ -11,7 +11,7 @@ function Header() {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Catalogue App</NavbarBrand>
+        <NavbarBrand href="/">Catalogue Application</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem >
             <NavLink to="/login">Sign-up/Sign-in</NavLink>
