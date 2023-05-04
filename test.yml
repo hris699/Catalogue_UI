@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: Cloudformation for Catalogue Application UI
+Description: Cloudformation for Catalogue Application UI 
 Parameters:
   S3BucketForCatalogueUI:
     Type: String
@@ -8,53 +8,12 @@ Resources:
     S3Bucket:
         Type: AWS::S3::Bucket
         Properties:
-            AccessControl: Private
+            AccessControl: Public
             BucketName: !Ref S3BucketForCatalogueUI
-    
-    CloudFrontOriginAccessControl:
-        Type: AWS::CloudFront::OriginAccessControl
-        Properties:
-            OriginAccessControlConfig:
-                Description: "origin access control(OAC) for allowing cloudfront to access S3 bucket"
-                Name: !Ref S3BucketForCatalogueUI
-                OriginAccessControlOriginType: s3
-                SigningBehavior: always
-                SigningProtocol: sigv4
-
-    CloudFrontDistribution:
-        Type: AWS::CloudFront::Distribution
-        Properties:
-            DistributionConfig:
-                Origins:
-                    -   DomainName: !Sub
-                          - ${BucketName}.s3.${AWS::Region}.amazonaws.com
-                          - { BucketName: !Ref S3BucketForCatalogueUI }
-                        Id: !Ref S3Bucket
-                        S3OriginConfig:
-                          OriginAccessIdentity: ''
-                        OriginAccessControlId: !GetAtt CloudFrontOriginAccessControl.Id
-                Enabled: 'true'
-                Comment: Catalogue
-                DefaultCacheBehavior:
-                    AllowedMethods:
-                        - GET
-                        - HEAD
-                        - POST
-                        - DELETE
-                        - OPTIONS
-                        - PUT
-                        - PATCH
-                    TargetOriginId: !Ref S3Bucket
-                    ForwardedValues:
-                        QueryString: 'false'
-                        Cookies:
-                            Forward: none
-                    ViewerProtocolPolicy: allow-all
-                DefaultRootObject: "index.html"
-                HttpVersion: 'http1.1'
-                ViewerCertificate:
-                    CloudFrontDefaultCertificate: 'true'
-                
+            VersioningConfiguration:
+              Status: Enabled
+            WebsiteConfiguration:
+              IndexDocument: "index.html"
 
     S3BucketPolicy:
         Type: AWS::S3::BucketPolicy
@@ -69,13 +28,11 @@ Resources:
                   Resource: !Sub
                     - arn:aws:s3:::${bucketname}/*
                     - { bucketname: !Ref S3Bucket }
-                  Principal:
-                    Service:
-                      - cloudfront.amazonaws.com
-                  Condition: 
-                    StringEquals:
-                        AWS:SourceArn: !Sub
-                                        - "arn:aws:cloudfront::${AWS::AccountId}:distribution/${distibution_id}"
-                                        - {distibution_id: !GetAtt CloudFrontDistribution.Id}
+                  Principal: "*"
     
-   
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt 
+      - S3Bucket
+      - WebsiteURL
+    Description: URL for website hosted on S3
