@@ -8,7 +8,7 @@ Resources:
     S3Bucket:
         Type: AWS::S3::Bucket
         Properties:
-            AccessControl: "PublicReadWrite"
+            # AccessControl: "PublicReadWrite"
             BucketName: !Ref S3BucketForCatalogueUI
             VersioningConfiguration:
               Status: Enabled
