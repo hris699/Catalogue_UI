@@ -8,8 +8,13 @@ Resources:
     S3Bucket:
         Type: AWS::S3::Bucket
         Properties:
-            AccessControl: "PublicReadWrite"
+            
             BucketName: !Ref S3BucketForCatalogueUI
+            PublicAccessBlockConfiguration:
+              BlockPublicAcls: false
+              BlockPublicPolicy: false
+              IgnorePublicAcls: false
+              RestrictPublicBuckets: false
             VersioningConfiguration:
               Status: Enabled
             WebsiteConfiguration:
