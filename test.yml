@@ -8,7 +8,6 @@ Resources:
     S3Bucket:
         Type: AWS::S3::Bucket
         Properties:
-            AccessControl: Public
             BucketName: !Ref S3BucketForCatalogueUI
             VersioningConfiguration:
               Status: Enabled
